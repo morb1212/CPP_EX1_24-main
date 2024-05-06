@@ -2,7 +2,8 @@
  * Demo program for Exercise 2.
  * Author: Benjamin Saldman.
  */
-
+//314923822
+//morberger444@gmail.com
 #include "Graph.hpp"
 #include "Algorithms.hpp"
 using ariel::Algorithms;
@@ -12,7 +13,7 @@ using ariel::Algorithms;
 #include <vector>
 using namespace std;
 
-int main()
+int main3()
 {
     ariel::Graph g;
     // 3x3 matrix that represents a connected graph.

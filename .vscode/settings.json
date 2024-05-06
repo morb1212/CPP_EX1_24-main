@@ -1,3 +1,12 @@
 {
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "deque": "cpp",
+        "iterator": "cpp",
+        "string_view": "cpp",
+        "list": "cpp",
+        "array": "cpp",
+        "vector": "cpp",
+        "string": "cpp"
+    }
 }
