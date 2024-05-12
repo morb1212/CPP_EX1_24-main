@@ -16,7 +16,7 @@ void Graph::loadGraph(const vector<vector<int> > &adjMatrix){
     int n = adjMatrix.size();
     for (const std::vector<int> &row : adjMatrix) {
         if (row.size() != n){
-            throw std::invalid_argument("not Square Matrix, Matrix size ");
+            throw std::invalid_argument("Invalid graph: The graph is not a square matrix.");
         }
     }
     this->matrix = adjMatrix;
@@ -27,11 +27,12 @@ void Graph::printGraph() const{
     int n = graphSize();
     int edgeCount = 0;
     for (unsigned long i = 0; i < n; ++i){
-        for (unsigned long j = i + 1; j < n; ++j){
+        for (unsigned long j = 0; j < n; ++j){
             if (matrix[i][j] != 0){
                 edgeCount++;
             }
         }
     }
-    std::cout << "Graph size:" << n << " and " << edgeCount << " edges." << std::endl;
+    std::cout << "Graph with " << this->vertices << " vertices and " << this->edges
+         << " edges." << std::endl;
 }
