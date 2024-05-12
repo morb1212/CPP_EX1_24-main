@@ -33,6 +33,5 @@ void Graph::printGraph() const{
             }
         }
     }
-    std::cout << "Graph with " << this->vertices << " vertices and " << this->edges
-         << " edges." << std::endl;
+    std::cout << "Graph with " << n << " vertices and " << edgeCount<< " edges." << std::endl;
 }
