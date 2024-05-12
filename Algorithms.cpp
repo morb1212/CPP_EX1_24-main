@@ -4,7 +4,7 @@
 #include <list>
 #define true 1
 #define false 0
-
+#define INT_MAX 999
 using namespace std;
 using namespace ariel;
 
@@ -142,28 +142,56 @@ string Algorithms::isBipartite(const Graph &gr){
     return result;
 }
 
-int Algorithms::negativeCycle(const Graph &gr){
+string Algorithms::negativeCycle(const Graph &gr){
     size_t n = gr.graphSize();
-    vector<int> distance(n, -1); 
+    vector<int> distance(n, INT_MAX); 
+    vector<size_t> parent(n, 0); // To keep track of the parent of each vertex in the shortest path
+    size_t cycleStart = 0; // To store the starting vertex of the cycle if found
+
     distance[0] = 0;
     vector<vector<int>> adjMatrix = gr.getMatrix();
+
+    // Run the Bellman-Ford algorithm
     for (size_t i = 0; i < n - 1; ++i){
         for (size_t w = 0; w < n; ++w){
             for (size_t v = 0; v < n; ++v){
                 if (adjMatrix[w][v] != 0){
-                    if (distance[w] != -1 && distance[w] + adjMatrix[w][v] < distance[v])
+                    if (distance[w] != INT_MAX && distance[w] + adjMatrix[w][v] < distance[v]){
                         distance[v] = distance[w] + adjMatrix[w][v];
+                        parent[v] = w;
+                    }
                 }
             }
         }
     }
+
+    // Check for negative cycle
     for (size_t w = 0; w < n; ++w){
         for (size_t v = 0; v < n; ++v){
             if (adjMatrix[w][v] != 0){
-                if (distance[w] != -1 && distance[w] + adjMatrix[w][v] < distance[v])
-                    return true;
+                if (distance[w] != INT_MAX && distance[w] + adjMatrix[w][v] < distance[v]){
+                    cycleStart = v; // Found a vertex inside negative cycle
+                    break;
+                }
             }
         }
+        if (cycleStart != 0)
+            break;
     }
-    return false;
+
+    // If negative cycle found, reconstruct the cycle
+    if (cycleStart != 0) {
+        string negativeCycle;
+        size_t current = cycleStart;
+        while (true) {
+            negativeCycle += to_string(current) + " -> ";
+            current = parent[current];
+            if (current == cycleStart)
+                break;
+        }
+        negativeCycle += to_string(cycleStart); // Add the starting vertex to complete the cycle
+        return negativeCycle;
+    }
+
+    return "there is no negative circle";
 }

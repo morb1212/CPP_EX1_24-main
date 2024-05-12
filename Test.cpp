@@ -103,3 +103,81 @@ TEST_CASE("Test invalid graph")
         {0, 0, 0, 5}};
     CHECK_THROWS(g.loadGraph(graph));
 }
+TEST_CASE("Test one")
+{
+    ariel::Graph g;
+    vector<vector<int>> graphTest1 = {
+        {0, -2, 4, 0},
+        {0, 0, -3, 0},
+        {0, 0, 0, 2},
+        {-1, 0, 0, 0}};
+    g.loadGraph(graphTest1);
+    CHECK(ariel::Algorithms::isConnected(g) == true);
+    CHECK(ariel::Algorithms::shortestPath(g, 0, 3) == "0->2->3");
+    CHECK(ariel::Algorithms::isContainsCycle(g) == true);
+    CHECK(ariel::Algorithms::isBipartite(g) == "0");
+    CHECK(ariel::Algorithms::negativeCycle(g) == "found");
+}
+
+TEST_CASE("Test two")
+{
+    ariel::Graph g;
+    vector<vector<int>> graphTest2 = {
+        {0, -1, 1, 0},
+        {0, 0, -1, 0},
+        {0, 0, 0, 1},
+        {-1, 0, 0, 0}};
+    g.loadGraph(graphTest2);
+    CHECK(ariel::Algorithms::isConnected(g) == true);
+    CHECK(ariel::Algorithms::shortestPath(g, 0, 3) == "0->2->3");
+    CHECK(ariel::Algorithms::isContainsCycle(g) == true);
+    CHECK(ariel::Algorithms::isBipartite(g) == "0");
+    CHECK(ariel::Algorithms::negativeCycle(g) == "there is no negative circle");
+}
+
+TEST_CASE("Test three")
+{
+    ariel::Graph g;
+    vector<vector<int>> graphTest3 = {
+        {0, 1, 0, 1},
+        {1, 0, 1, 0},
+        {0, 1, 0, 1},
+        {1, 0, 1, 0}};
+    g.loadGraph(graphTest3);
+    CHECK(ariel::Algorithms::isConnected(g) == true);
+    CHECK(ariel::Algorithms::shortestPath(g, 0, 3) == "0->3");
+    CHECK(ariel::Algorithms::isContainsCycle(g) == true);
+    CHECK(ariel::Algorithms::isBipartite(g) == "The graph is bipartite: A={0, 2}, B={1, 3}");
+    CHECK(ariel::Algorithms::negativeCycle(g) == "there is no negative circle");
+}
+TEST_CASE("Test four")
+{
+    ariel::Graph g;
+    vector<vector<int>> graphTest4 = {
+        {0, -1, 0, -2, 0},
+        {-1, 0, -2, 0, -3},
+        {0, -6, 0, -1, 0},
+        {-2, 0, -1, 0, -2},
+        {0, -3, 0, -6, 0}};
+    g.loadGraph(graphTest4);
+    CHECK(ariel::Algorithms::isConnected(g) == true);
+    CHECK(ariel::Algorithms::shortestPath(g, 1, 4) == "1->4");
+    CHECK(ariel::Algorithms::isContainsCycle(g) == true);
+    CHECK(ariel::Algorithms::isBipartite(g) == "The graph is bipartite: A={0, 2, 4}, B={1, 3}");
+    CHECK(ariel::Algorithms::negativeCycle(g) == "found");
+}
+TEST_CASE("Test five")
+{
+    ariel::Graph g;
+    vector<vector<int>> graphTest5 = {
+        {0, 7, 0},
+        {0, 0, -2},
+        {0, 2, 0}};
+    g.loadGraph(graphTest5);
+    CHECK(ariel::Algorithms::isConnected(g) == true);
+    CHECK(ariel::Algorithms::shortestPath(g, 0, 2) == "0->1->2");
+    CHECK(ariel::Algorithms::isContainsCycle(g) == false);
+    CHECK(ariel::Algorithms::isBipartite(g) == "The graph is bipartite: A={0, 2}, B={1}");
+    CHECK(ariel::Algorithms::negativeCycle(g) == "there is no negative circle");
+}
+
