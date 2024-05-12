@@ -163,7 +163,7 @@ string Algorithms::negativeCycle(const Graph &gr){
         for (size_t v = 0; v < n; ++v){
             if (adjMatrix[w][v] != 0){
                 if (distance[w] != -1 && distance[w] + adjMatrix[w][v] < distance[v])
-                    return "found";
+                    return "found from "+ std::to_string(distance[w]);
             }
         }
     }

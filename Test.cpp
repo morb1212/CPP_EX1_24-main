@@ -116,7 +116,7 @@ TEST_CASE("Test one")
     CHECK(ariel::Algorithms::shortestPath(g, 0, 3) == "0->2->3");
     CHECK(ariel::Algorithms::isContainsCycle(g) == true);
     CHECK(ariel::Algorithms::isBipartite(g) == "0");
-    CHECK(ariel::Algorithms::negativeCycle(g) == "found");
+    CHECK(ariel::Algorithms::negativeCycle(g) == "found from -12");
 }
 
 TEST_CASE("Test two")
@@ -164,7 +164,7 @@ TEST_CASE("Test four")
     CHECK(ariel::Algorithms::shortestPath(g, 1, 4) == "1->4");
     CHECK(ariel::Algorithms::isContainsCycle(g) == true);
     CHECK(ariel::Algorithms::isBipartite(g) == "The graph is bipartite: A={0, 2, 4}, B={1, 3}");
-    CHECK(ariel::Algorithms::negativeCycle(g) == "found");
+    CHECK(ariel::Algorithms::negativeCycle(g) == "found from -31");
 }
 TEST_CASE("Test five")
 {
