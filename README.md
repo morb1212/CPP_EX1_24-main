@@ -1,31 +1,30 @@
-# Graph Algorithms
+# אלגוריתמי גרפים ב־C++
 
-This C++ project provides implementations of various graph algorithms, including connectivity checks, shortest path finding, cycle detection, and bipartite graph identification.
+פרויקט זה מספק ביצועים של מגוון אלגוריתמים גרפיים בשפת C++, כולל בדיקת קישוריות, חיפוש נתיב קצר, זיהוי מחזורים וזיהוי גרף דו־מרכזי.
 
-## Project Details
+## פרטי הפרויקט
 
-- **Author:** 314923822
-- **Email:** morberger444@gmail.com
+- **מחבר:** 314923822
+- **אימייל:** morberger444@gmail.com
 
-## Overview
+## סקירה
 
-The project consists of two main classes:
+הפרויקט מכיל שני מחלקות ראשיות:
 
-- **Graph**: Represents a graph data structure and provides methods for loading graphs from adjacency matrices and printing graph information.
-- **Algorithms**: Contains static methods for performing graph algorithms on instances of the `Graph` class.
+- **Graph (גרף)**: מייצג מבנה נתונים של גרף ומספק שיטות לטעינת גרפים ממטריצות סמיכויות ולהדפסת מידע על הגרף.
+- **Algorithms (אלגוריתמים)**: מכיל שיטות סטטיות לביצוע אלגוריתמים גרפיים על מופעים של מחלקת `Graph`.
 
-## Implemented Algorithms
+## אלגוריתמים שמיושמים
 
-1. **Connectivity Check**: Determines whether a graph is connected.
-2. **Shortest Path**: Finds the shortest path between two vertices in a graph.
-3. **Cycle Detection**: Identifies whether a graph contains a cycle.
-4. **Bipartite Graph Identification**: Determines whether a graph is bipartite and if so, partitions the vertices into two sets.
+1. **בדיקת קישוריות**: מקבלת האם הגרף מחובר.
+2. **נתיב הקצר ביותר**: מוצא את הנתיב הקצר ביותר בין שני צמתים בגרף.
+3. **זיהוי מחזורים**: מזהה האם הגרף מכיל מחזור.
+4. **זיהוי גרף דו־מרכזי**: מקבלת האם הגרף הוא גרף דו־מרכזי ואם כן, מחלקת את הצמתים לשני קבוצות.
 
-## Usage
+## שימוש
 
-To use this project:
+כדי להשתמש בפרויקט זה:
 
-1. **Include Header Files**: Include the `Graph.hpp` and `Algorithms.hpp` header files in your C++ project.
-2. **Instantiate Graph Objects**: Create instances of the `Graph` class and load graphs using the `loadGraph` method.
-3. **Use Algorithm Methods**: Call the static methods of the `Algorithms` class to perform various graph algorithms on the loaded graph objects.
-
+1. **כלול קבצי כותרת**: כלול את קבצי הכותרת `Graph.hpp` ו־`Algorithms.hpp` בפרויקט ה־C++ שלך.
+2. **יצירת מופעי גרף**: צור מופעים של מחלקת `Graph` וטען גרפים באמצעות שיטת `loadGraph`.
+3. **שימוש בשיטות אלגוריתמיות**: קרא לשיטות הסטטיות של מחלקת `Algorithms` כדי לבצע אלגוריתמים גרפיים שונים על אובייקטי הגרף שנטענו.
