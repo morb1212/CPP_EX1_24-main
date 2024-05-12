@@ -144,7 +144,7 @@ string Algorithms::isBipartite(const Graph &gr){
 
 string Algorithms::negativeCycle(const Graph &gr){
     if(!isContainsCycle(gr))
-        return "there is no negative circle";
+        return "There is no negative cycle";
     size_t n = gr.graphSize();
     vector<int> distance(n, -1); 
     distance[0] = 0;
@@ -167,5 +167,5 @@ string Algorithms::negativeCycle(const Graph &gr){
             }
         }
     }
-    return "there is no negative circle";
+    return "There is no negative cycle";
 }
