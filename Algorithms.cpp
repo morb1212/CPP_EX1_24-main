@@ -142,7 +142,7 @@ string Algorithms::isBipartite(const Graph &gr){
     return result;
 }
 
-int Algorithms::negativeCycle(const Graph &gr){
+string Algorithms::negativeCycle(const Graph &gr){
     size_t n = gr.graphSize();
     vector<int> distance(n, -1); 
     distance[0] = 0;
