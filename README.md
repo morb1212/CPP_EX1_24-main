@@ -32,4 +32,7 @@
    ## קמפול
 bash
 make run
+
+## בדיקה 
+./test
    
